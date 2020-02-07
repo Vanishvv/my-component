@@ -1,0 +1,36 @@
+.image {
+  display: none;
+}
+
+.el-image{
+  width: 300px;
+  height: 300px;
+}
+
+.img-tool {
+  height: 80px;
+  width: 300px;
+  font-size: 22px;
+}
+
+.user{
+  float: left;
+  margin-top: 5px;
+  padding-left: 5px;
+}
+
+.like,.browse{
+  float: left;
+  margin-top: 10px;
+  height: 80px;
+  padding-top: 6px;
+  letter-spacing: 8px;
+}
+
+.like{
+  margin-left: 140px;
+}
+
+.browse{
+  margin-left: 10px;
+}

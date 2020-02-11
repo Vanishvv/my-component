@@ -18,7 +18,8 @@
       return {
         rowData:imgListData.data,
         srcList:{},
-        imgSrc:''
+        imgSrc:'',
+        imgIndex:''
       }
     }
   }

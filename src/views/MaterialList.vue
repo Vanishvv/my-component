@@ -2,79 +2,55 @@
   <div class="material-list">
     <!--导航条-->
     <div class="index-nav">
-      <!--导航栏-->
       <el-menu
-        :default-active="activeIndex"
+        :default-active="indexData.activeIndex"
         class="index-menu"
-        mode="horizontal"
+        :mode="indexData.indexMenuMode"
         @select="handleSelect"
-        active-text-color="#ff3737">
-        <el-menu-item index="4">浙理轻定</el-menu-item>
-        <el-menu-item index="2">浙理作品</el-menu-item>
-        <el-menu-item index="3">设计素材</el-menu-item>
-        <el-menu-item index="1">设计资源</el-menu-item>
+        :active-text-color="indexData.activeColor">
+        <el-menu-item
+          :index="(index+'')"
+          v-for="(menuItem,index) in indexData.indexMenuData" :key="index"
+        >{{menuItem.itemName}}</el-menu-item>
       </el-menu>
-      <!--登录注册单选按钮-->
       <el-radio-group
-        v-model="radio1"
+        v-model="indexData.radioChoose"
         size="small"
-        fill="#ff3737"
+        :fill="indexData.activeColor"
         class="login-radio">
-        <el-radio-button label="注册"></el-radio-button>
-        <el-radio-button label="登录"></el-radio-button>
+        <el-radio-button :label="radioItem.labelName"v-for="(radioItem,index) in indexData.radioData" :key="index"></el-radio-button>
       </el-radio-group>
-      <!--中心LOGO-->
-      <img src="../assets/images/zldz-logo.png"class="logo" alt="" >
-      <p class="logo-name">浙江省服装个性化定制2011协同创新中心</p>
+      <img :src="indexData.logoUrl" class="logo" alt="" >
+      <p class="logo-name">{{indexData.logoName}}</p>
     </div>
-    <img src="../assets/images/index-bg.jpg" class="index-bg" alt=" " >
+    <img :src="indexData.indexBgUrl" class="index-bg" alt=" " >
     <!--搜索框-->
-    <SearchBox></SearchBox>
+    <SearchBox :options="indexData.options"
+               :searchInput="indexData.searchInput"
+               :selectValue="indexData.selectValue"
+               :searchPlaceholder="indexData.searchPlaceholder"
+    ></SearchBox>
     <!--设计导航-->
     <el-menu
-      :default-active="activeIndex"
+      :default-active="indexData.activeIndex"
       class="design-menu"
-      mode="horizontal"
+      :mode="indexData.indexMenuMode"
       @select="handleSelect"
-      active-text-color="#ff3737">
-      <el-menu-item index="4">重点推荐</el-menu-item>
-      <el-menu-item index="2">设计素材</el-menu-item>
-      <el-menu-item index="3">设计工具</el-menu-item>
-      <el-menu-item index="1">设计导航</el-menu-item>
-      <el-menu-item index="5">其他</el-menu-item>
+      :active-text-color="indexData.activeColor">
+      <el-menu-item
+        :index="(index+'')"  v-for="(designMenuItem,index) in indexData.designMenuData" :key="index"
+      >{{designMenuItem.itemName}}</el-menu-item>
     </el-menu>
+    <!--筛选开关-->
     <div class="switch-list">
       <el-switch
         class="index-switch"
-        style="display: block"
-        v-model="value1"
-        active-color="#ff3737"
-        inactive-color="#ccc"
-        active-text="国内">
-      </el-switch>
-      <el-switch
-        class="index-switch"
-        style="display: block"
-        v-model="value2"
-        active-color="#ff3737"
-        inactive-color="#ccc"
-        active-text="国外">
-      </el-switch>
-      <el-switch
-        class="index-switch"
-        style="display: block"
-        v-model="value3"
-        active-color="#ff3737"
-        inactive-color="#ccc"
-        active-text="免费">
-      </el-switch>
-      <el-switch
-        class="index-switch"
-        style="display: block"
-        v-model="value4"
-        active-color="#ff3737"
-        inactive-color="#ccc"
-        active-text="收费">
+        v-model="switchItem.value"
+        :active-color="indexData.activeColor"
+        :inactive-color="indexData.inactiveColor"
+        :active-text="switchItem.name"
+        v-for="(switchItem,index) in indexData.switchData" :key="index"
+      >
       </el-switch>
     </div>
   </div>
@@ -82,18 +58,16 @@
 
 <script>
   import SearchBox from"../components/SeacherBox"
+  import materialListData from "../../static/materialListData"
   export default {
     name: '',
     data(){
       return {
-        activeIndex: '1',
-        radio1: '注册',
-        select:'',
-        activeName: 'second',
-        value1:'',
-        value2:'',
-        value3:'',
-        value4:''
+        indexData:materialListData.data,
+        options:'',
+        searchInput:'',
+        selectValue:'',
+        searchPlaceholder:''
       }
     },
     methods: {

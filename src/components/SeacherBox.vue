@@ -1,14 +1,13 @@
 <template>
   <div class="search-box">
     <el-input
-      placeholder="输入网站查询关键字"
+      :placeholder="searchPlaceholder"
       class="search-input"
       v-model="searchInput"
     >
     </el-input>
     <el-select
-      v-model="value"
-      placeholder="按收藏数"
+      v-model="selectValue"
       class="search-select"
       :popper-append-to-body="false"
       popper-class="select-popper">
@@ -29,20 +28,13 @@
 <script>
   export default {
     name: "",
+    props:["searchInput","options","selectValue","searchPlaceholder"],
     data(){
       return{
-        searchInput:'',
-        options: [{
-          value: '选项1',
-          label: '按收藏数'
-        }, {
-          value: '选项2',
-          label: '按浏览数'
-        }, {
-          value: '选项3',
-          label: '按时间'
-        }],
-        value:'选项1'
+        searchInput:this.searchInput,
+        options: this.options,
+        selectValue:this.selectValue,
+        searchPlaceholder:this.searchPlaceholder
       }
     },
     methods:{

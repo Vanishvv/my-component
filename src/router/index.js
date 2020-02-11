@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import ImgList from '@/views/ImgList'
+import MaterialList from '@/views/MaterialList'
 
 Vue.use(Router)
 
@@ -9,7 +9,7 @@ export default new Router({
     {
       path: '/',
       name: 'HelloWorld',
-      component: ImgList
+      component: MaterialList
     }
   ]
 })

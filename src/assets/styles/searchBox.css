@@ -1,0 +1,85 @@
+.search-input {
+  position: absolute;
+  top: 38%;
+  left: -5%;
+}
+
+.search-box>>> .el-input__inner:hover{
+  border: none;
+}
+
+.search-box>>> .el-input__inner:active{
+  border: none;
+}
+
+.search-box>>> .el-input__inner:focus{
+  border:none;
+}
+
+.search-box>>> .el-input__inner{
+  border-right: none;
+  border-bottom: none;
+  border-top:none;
+  border-left:#ccc ;
+}
+
+.search-input>>> .el-input__inner {
+  width: 35%;
+  height: 52px;
+  background: #ffffff;
+  border: solid 1px white;
+  font-size: 16px;
+  font-family: Segoe UI, Segoe UI-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #000000;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.search-box>>> .el-button {
+  border-radius: 0 5px 5px 0;
+  background: #ff3737;
+  height: 52px;
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 38%;
+  right: 26.5%;
+  border-top: solid 1px #ff3737;
+  border-bottom: solid 1px #ff3737;
+  border-right: solid 1px #ff3737;
+}
+
+.search-select>>> .el-input__inner{
+  border-radius: 0;
+  height: 50px;
+}
+
+.search-box>>> .search-select{
+  width: 120px;
+  border-radius: 0;
+  position: absolute;
+  top:38%;
+  right: 30%;
+  border-top:solid 1px white;
+  border-bottom:solid 1px white;
+}
+
+/deep/.select-popper {
+  border-radius: 0.08rem;
+  border: solid 0.02rem #1c395d;
+  font-family: PingFangSC-Regular;
+}
+.el-select-dropdown__item.selected {
+  color: #ff3737;
+}
+
+.search-camera{
+  position: absolute;
+  top:40%;
+  right: 39%;
+  font-size: 25px;
+  color: #99a9bf;
+}
+
+
